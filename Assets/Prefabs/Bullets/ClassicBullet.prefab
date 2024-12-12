@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2423429247568623916}
   m_Layer: 0
   m_Name: ClassicBullet
-  m_TagString: Untagged
+  m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletRso: {fileID: 11400000, guid: 0e05f2122b72f2c459d304a4e670cffe, type: 2}
-  angleOffset: 45
   life: 0
 --- !u!50 &-2797194861259751157
 Rigidbody2D:

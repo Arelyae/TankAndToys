@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4531952392482668316}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TankDataRSo: {fileID: 11400000, guid: af7afdf46b0c4bf40a3bbd389b085130, type: 2}
+  objectToDestroy: {fileID: 3382521548091018487}
   angleTolerance: 40
 --- !u!50 &2975566328991393782
 Rigidbody2D:
@@ -128,7 +129,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4531952392482668316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -273,6 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TankDataRso: {fileID: 11400000, guid: af7afdf46b0c4bf40a3bbd389b085130, type: 2}
+  bulletDataRso: {fileID: 11400000, guid: 0e05f2122b72f2c459d304a4e670cffe, type: 2}
   spawnPoint: {fileID: 6561853869171060792}
 --- !u!1 &3382521548091018487
 GameObject:
@@ -286,7 +288,7 @@ GameObject:
   - component: {fileID: 2951029762597535346}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

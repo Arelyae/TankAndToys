@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: ClassicBullet
   m_EditorClassIdentifier: 
   bulletName: Classic Bullet
-  speed: 5
+  speed: -5
   life: 3
+  magSize: 4
+  reloadTime: 1
+  fireRate: 0.2
+  primarColor: {r: 1, g: 0.7951085, b: 0, a: 1}

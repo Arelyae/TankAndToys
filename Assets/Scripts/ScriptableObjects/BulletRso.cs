@@ -10,8 +10,18 @@ using static UnityEngine.GraphicsBuffer;
 public class BulletRso : ScriptableObject
 {
     public string bulletName;
-    public float speed;
 
+    [Header("Bullet Behavior")]
+    public float speed;
     public float life;
+
+    [Header("Bullet Rate")]
+    public float magSize;
+    public float reloadTime;
+    public float fireRate;
+
+    [Header("Apparence")]
+    public Color primarColor;
+
 
 }
