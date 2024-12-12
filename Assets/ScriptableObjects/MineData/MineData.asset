@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415173a684e60b342aef4dfe7131e184, type: 3}
   m_Name: MineData
   m_EditorClassIdentifier: 
-  mineName: 
+  mineName: Classic Mine
   life: 0
-  primarColor: {r: 0, g: 0, b: 0, a: 0}
+  primarColor: {r: 0, g: 0, b: 0, a: 1}
   explosionType: {fileID: 0}
+  spawnRate: 3

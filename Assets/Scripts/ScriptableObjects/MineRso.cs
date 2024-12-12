@@ -16,4 +16,8 @@ public class MineRso : ScriptableObject
 
     [Header("Explosion")]
     public GameObject explosionType;
+
+    [Header("Permissions")]
+    public float spawnRate;
+
 }
