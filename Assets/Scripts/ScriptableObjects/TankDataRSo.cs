@@ -7,12 +7,19 @@ public class TankDataRSo : ScriptableObject
 {
     public string nameOfTank;
 
+    [Header("Is player")]
     public bool player;
 
+    [Header("Movement")]
     public float speed;
     public float rotationSpeed;
 
-
-
+    [Header("Weapons")]
     public GameObject bulletUsed;
+    public GameObject mineUsed;
+
+
+    [Header("Apparence")]
+    public Color primarColor;
+    public Color secondColor;
 }

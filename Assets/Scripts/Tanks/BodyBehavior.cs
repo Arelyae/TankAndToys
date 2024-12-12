@@ -10,7 +10,10 @@ public class BodyBehavior : MonoBehaviour
     private float rotationSpeed;
     public float angleTolerance;
 
-    private Vector2 inputDirection; 
+    private Vector2 inputDirection;
+
+    public float targetAngle;
+
 
     private void Start()
     {
@@ -34,21 +37,20 @@ public class BodyBehavior : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        // Create a movement direction vector for 2D (X, Y)
-        inputDirection = new Vector2(moveHorizontal, moveVertical).normalized;
+        if(TankDataRSo.player)
+        {
+            inputDirection = new Vector2(moveHorizontal, moveVertical).normalized;
+        }
     }
 
-    /// <summary>
-    /// Handles the rotation of the body based on the provided direction.
-    /// </summary>
-    /// <param name="direction">The direction vector to rotate towards.</param>
+  
     private void HandleRotation(Vector2 direction)
     {
         // Check if there's meaningful input
         if (direction.magnitude > 0.1f)
         {
             // Calculate the target angle for rotation (in degrees)
-            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             // Smoothly rotate towards the target angle
             float currentAngle = Mathf.LerpAngle(transform.eulerAngles.z, targetAngle, rotationSpeed * Time.deltaTime);
@@ -56,10 +58,7 @@ public class BodyBehavior : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Handles the movement of the body if it is within the allowed rotation tolerance.
-    /// </summary>
-    /// <param name="direction">The direction vector to move in.</param>
+  
     private void HandleMovement(Vector2 direction)
     {
         // Check if there's meaningful input
@@ -85,6 +84,7 @@ public class BodyBehavior : MonoBehaviour
         if (collision.gameObject.tag == "Damage") 
         { 
             Destroy(objectToDestroy);
+            Debug.Log("Player was destroyed by" + collision.gameObject.name);
         }
     }
 

@@ -8,13 +8,12 @@ public class InputPlayer : MonoBehaviour
 
     public UnityEvent OnLandMine;
     public UnityEvent OnFire;
-
+    public TankDataRSo tankDataRSo;
 
     void Start()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-        float playerLandMine = Input.GetAxis("Jump");
     }
 
     // Update is called once per frame
@@ -30,13 +29,13 @@ public class InputPlayer : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Debug.Log("Player attempted to Land a mine");
-
+            OnLandMine.Invoke();
         }
     }
 
     public void PlayerFireBullet()
     {
-        if(Input.GetButton("Fire1"))
+        if(Input.GetButton("Fire1") && tankDataRSo.player)
         {
             Debug.Log("Player attempted to fire");
             OnFire.Invoke();
