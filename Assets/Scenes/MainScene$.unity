@@ -170,9 +170,9 @@ GameObject:
   - component: {fileID: 304436484}
   - component: {fileID: 304436483}
   - component: {fileID: 304436482}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -463,9 +463,9 @@ GameObject:
   m_Component:
   - component: {fileID: 581781102}
   - component: {fileID: 581781103}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SquareSprite
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -598,9 +598,9 @@ GameObject:
   - component: {fileID: 1112530471}
   - component: {fileID: 1112530470}
   - component: {fileID: 1112530469}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -756,9 +756,9 @@ GameObject:
   - component: {fileID: 1858203407}
   - component: {fileID: 1858203406}
   - component: {fileID: 1858203409}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -914,9 +914,9 @@ GameObject:
   - component: {fileID: 2045873032}
   - component: {fileID: 2045873031}
   - component: {fileID: 2045873030}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1072,9 +1072,29 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1323743874135992878, guid: 2179700bde03d4e4d9707f64df75ce64, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407967727360904846, guid: 2179700bde03d4e4d9707f64df75ce64, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591495686959130891, guid: 2179700bde03d4e4d9707f64df75ce64, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3382521548091018487, guid: 2179700bde03d4e4d9707f64df75ce64, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382521548091018487, guid: 2179700bde03d4e4d9707f64df75ce64, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501927337123672085, guid: 2179700bde03d4e4d9707f64df75ce64, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7397055682853586240, guid: 2179700bde03d4e4d9707f64df75ce64, type: 3}
       propertyPath: mineDataRso

@@ -10,9 +10,11 @@ public class MineRso : ScriptableObject
 
     [Header("Bullet Behavior")]
     public float life;
+    public float flickerDuration;
 
     [Header("Apparence")]
     public Color primarColor;
+    public Color finalColor;
 
     [Header("Explosion")]
     public GameObject explosionType;

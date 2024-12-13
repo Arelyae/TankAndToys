@@ -14,7 +14,7 @@ public class MineInstanciate : MonoBehaviour
 
     private void Start()
     {
-        spawnRate = mineDataRso.spawnRate;
+
     }
 
     public void MineInstanciating()

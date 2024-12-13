@@ -36,6 +36,12 @@ public class BulletBehavior : MonoBehaviour
             return;
         }
 
+        if(collision.gameObject.tag == "Mine")
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         if (collision.gameObject.tag != "Tank")
         {
             // Get the normal of the surface hit
