@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7470166016077744084}
   - component: {fileID: 6641028639606658349}
-  - component: {fileID: 1370814535879968221}
   - component: {fileID: 7397055682853586240}
   - component: {fileID: 2975566328991393782}
   - component: {fileID: 4531952392482668316}
+  - component: {fileID: 3268800981939377441}
   m_Layer: 3
   m_Name: Body
   m_TagString: Tank
@@ -88,24 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1370814535879968221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323743874135992878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298dc7f1a04487949b67c0eb3d1f3987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TankDataRSo: {fileID: 11400000, guid: af7afdf46b0c4bf40a3bbd389b085130, type: 2}
-  PlayerData: {fileID: 11400000, guid: cd273d41ef4ff164fbe8175b5cd65f11, type: 2}
-  objectToDestroy: {fileID: 3382521548091018487}
-  targetAngle: 0
-  rotationFunction: {fileID: 11400000, guid: 173af2ebf93d0e04b8a9225c4b360ef3, type: 2}
-  movementFunction: {fileID: 11400000, guid: 1e8fa96c16d0f5a48a45c82efc75b2cf, type: 2}
 --- !u!114 &7397055682853586240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +175,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9550436, y: 0.9628849}
   m_EdgeRadius: 0
+--- !u!114 &3268800981939377441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323743874135992878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b848f67274fb364f95edfe7f863fb41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: cd273d41ef4ff164fbe8175b5cd65f11, type: 2}
+  tankDataRSo: {fileID: 11400000, guid: 4aa639e008c312b45a00743e54aa9f18, type: 2}
+  rotationFunction: {fileID: 11400000, guid: 173af2ebf93d0e04b8a9225c4b360ef3, type: 2}
+  movementFunction: {fileID: 11400000, guid: 1e8fa96c16d0f5a48a45c82efc75b2cf, type: 2}
 --- !u!1 &2641651432211385973
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b141d7a0836e144894dc4c5d65392c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TankDataRso: {fileID: 11400000, guid: af7afdf46b0c4bf40a3bbd389b085130, type: 2}
+  TankDataRso: {fileID: 11400000, guid: 4aa639e008c312b45a00743e54aa9f18, type: 2}
   bulletDataRso: {fileID: 11400000, guid: 0e05f2122b72f2c459d304a4e670cffe, type: 2}
   spawnPoint: {fileID: 6561853869171060792}
 --- !u!1 &2934963244043727572
@@ -341,7 +339,7 @@ GameObject:
   - component: {fileID: 2951029762597535346}
   - component: {fileID: 5946794910897445925}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Enemy
   m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,7 +404,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  tankDataRSo: {fileID: 11400000, guid: af7afdf46b0c4bf40a3bbd389b085130, type: 2}
+  tankDataRSo: {fileID: 11400000, guid: 4aa639e008c312b45a00743e54aa9f18, type: 2}
 --- !u!114 &5946794910897445925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72f4d596a2f0c94cbc1fdb0e8691db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TankDataRSo: {fileID: 11400000, guid: af7afdf46b0c4bf40a3bbd389b085130, type: 2}
+  TankDataRSo: {fileID: 11400000, guid: 4aa639e008c312b45a00743e54aa9f18, type: 2}
   primarColor:
   - {fileID: 6641028639606658349}
   secondaryColor:
@@ -499,7 +497,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -583,7 +581,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 04ebfee92e50a0d4ea24585927c8c8fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -667,7 +665,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -782,7 +780,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80fea637272a91d49aaec59b98fe2b49, type: 3}
-  m_Name: Player
+  m_Name: ClassicEnemy
   m_EditorClassIdentifier: 
   nameOfTank: Player 1
-  player: 1
+  player: 0
   speed: 1.5
   rotationSpeed: 2.5
   angleTolerance: 40
   bulletUsed: {fileID: 875525187206142973, guid: 14ca98a9d78f3db439cc770d268f9128, type: 3}
   mineUsed: {fileID: 692879645048290444, guid: e7e2f57d415852d468bb972931179cb5, type: 3}
-  primarColor: {r: 0, g: 0.5515654, b: 1, a: 1}
-  secondColor: {r: 0, g: 0.92023826, b: 1, a: 1}
+  primarColor: {r: 1, g: 0.08050734, b: 0, a: 1}
+  secondColor: {r: 1, g: 0.5748935, b: 0, a: 1}

@@ -13,6 +13,7 @@ public class TankDataRSo : ScriptableObject
     [Header("Movement")]
     public float speed;
     public float rotationSpeed;
+    public float angleTolerance;
 
     [Header("Weapons")]
     public GameObject bulletUsed;

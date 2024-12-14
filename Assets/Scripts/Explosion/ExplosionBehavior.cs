@@ -6,44 +6,26 @@ public class ExplosionBehaviour : MonoBehaviour
     [Header("Explosion Data")]
     public ExplosionRso explosionRso; // Reference to the ExplosionRso, which holds all the necessary values
 
-    [Header("Behavior")]
-    private float originalSize;  // The original size of the object
-    private float targetSize;    // The target size to transition to
-    private float time;          // The time to transition to the target size
-
-    [Header("Appearance")]
-    private Color firstColor;    // The first color (start color)
-    private Color secondColor;   // The second color (target color during size transition)
-    private Color dissappearanceColor; // The color when the object disappears
-
-    private Vector3 initialSize; // The initial size of the object (set to originalSize at start)
-    private Color initialColor;  // The initial color of the object (set to firstColor at start)
-    private Renderer objectRenderer; // Reference to the renderer to change the color
-    private bool isTransitioning = false; // To control if the transition is already happening
+    private Vector3 initialSize;      // The initial size of the object (set to originalSize at start)
+    private Color initialColor;       // The initial color of the object (set to firstColor at start)
+    private Renderer objectRenderer;  // Reference to the renderer to change the color
 
     private void Start()
     {
-        // Fetch values from ExplosionRso
-        if (explosionRso != null)
-        {
-            originalSize = explosionRso.originalSize;
-            targetSize = explosionRso.targetSize;
-            time = explosionRso.time;
-            firstColor = explosionRso.firstColor;
-            secondColor = explosionRso.secondColor;
-            dissappearanceColor = explosionRso.dissappearanceColor;
-        }
-        else
+        if (explosionRso == null)
         {
             Debug.LogWarning("ExplosionRso is not assigned!");
+            return;
         }
 
-        // Set the initial values from the fetched variables
-        initialSize = new Vector3(originalSize, originalSize, originalSize);  // Assuming uniform size (x = y = z)
-        initialColor = firstColor;
-        transform.localScale = initialSize; // Set the object's initial size
+        // Initialize size and color
+        initialSize = new Vector3(explosionRso.originalSize, explosionRso.originalSize, explosionRso.originalSize); // Assuming uniform size
+        initialColor = explosionRso.firstColor;
+
+        // Set object size and color
+        transform.localScale = initialSize;
         objectRenderer = GetComponent<Renderer>();
-        objectRenderer.material.color = initialColor; // Set the object's initial color
+        objectRenderer.material.color = initialColor;
 
         StartTransition();
     }
@@ -51,51 +33,52 @@ public class ExplosionBehaviour : MonoBehaviour
     // Start the size and color transition
     public void StartTransition()
     {
-        if (!isTransitioning)
-        {
-            StartCoroutine(TransitionCoroutine());
-        }
+        StartCoroutine(TransitionCoroutine());
     }
 
     private IEnumerator TransitionCoroutine()
     {
-        isTransitioning = true;
         float elapsedTime = 0f;
 
         // Transition from the initial size to target size while changing color
-        while (elapsedTime < time)
+        while (elapsedTime < explosionRso.time)
         {
-            float t = elapsedTime / time;
+            float t = elapsedTime / explosionRso.time;
 
-            // Smooth transition for size and color
-            transform.localScale = Vector3.Lerp(initialSize, new Vector3(targetSize, targetSize, targetSize), t);
-            objectRenderer.material.color = Color.Lerp(initialColor, secondColor, t);
+            // Use animation curves from the ScriptableObject
+            float sizeMultiplier = explosionRso.sizeCurve.Evaluate(t);
+            float colorMultiplier = explosionRso.colorCurve.Evaluate(t);
+
+            // Interpolate size and color
+            transform.localScale = Vector3.Lerp(initialSize, new Vector3(explosionRso.targetSize, explosionRso.targetSize, explosionRso.targetSize), sizeMultiplier);
+            objectRenderer.material.color = Color.Lerp(initialColor, explosionRso.secondColor, colorMultiplier);
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        // Set the final size and color after the transition
-        transform.localScale = new Vector3(targetSize, targetSize, targetSize);
-        objectRenderer.material.color = secondColor;
+        // Finalize size and color
+        transform.localScale = new Vector3(explosionRso.targetSize, explosionRso.targetSize, explosionRso.targetSize);
+        objectRenderer.material.color = explosionRso.secondColor;
 
-        // Wait a moment and transition to the final color
+        // Wait before transitioning to disappearance color
         yield return new WaitForSeconds(0.5f);
 
         // Transition to disappearance color
         elapsedTime = 0f;
-        while (elapsedTime < time)
+        while (elapsedTime < explosionRso.time)
         {
-            float t = elapsedTime / time;
-            objectRenderer.material.color = Color.Lerp(secondColor, dissappearanceColor, t);
+            float t = elapsedTime / explosionRso.time;
+            float colorMultiplier = explosionRso.colorCurve.Evaluate(t); // Reuse the color curve for fading out
+            objectRenderer.material.color = Color.Lerp(explosionRso.secondColor, explosionRso.dissappearanceColor, colorMultiplier);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        // Set the final disappearance color
-        objectRenderer.material.color = dissappearanceColor;
+        // Set disappearance color
+        objectRenderer.material.color = explosionRso.dissappearanceColor;
 
-        // Handle disappearance (destroy or deactivate the object)
+        // Handle disappearance
         HandleDisappearance();
     }
 

@@ -26,7 +26,7 @@ public class InputPlayer : MonoBehaviour
     public void PlayerLandMine()
     {
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButton("Jump"))
         {
             Debug.Log("Player attempted to Land a mine");
             OnLandMine.Invoke();

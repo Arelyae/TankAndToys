@@ -111,6 +111,9 @@ public class MineBehavior : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        HandleDisappearance();
+        if(collision.gameObject.tag == "Damage")
+        {
+            HandleDisappearance();
+        }
     }
 }
