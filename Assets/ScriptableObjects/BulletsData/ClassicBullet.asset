@@ -18,4 +18,4 @@ MonoBehaviour:
   magSize: 4
   reloadTime: 1
   fireRate: 0.2
-  primarColor: {r: 1, g: 0.038024597, b: 0, a: 1}
+  primarColor: {r: 1, g: 0.17174745, b: 0, a: 1}
