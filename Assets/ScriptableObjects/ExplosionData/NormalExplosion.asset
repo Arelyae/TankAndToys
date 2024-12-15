@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalSize: 0.01
   targetSize: 1
-  time: 0.2
+  time: 0.25
   firstColor: {r: 1, g: 0.931121, b: 0, a: 1}
   secondColor: {r: 1, g: 0.15558341, b: 0, a: 1}
   dissappearanceColor: {r: 1, g: 0, b: 0, a: 0}
