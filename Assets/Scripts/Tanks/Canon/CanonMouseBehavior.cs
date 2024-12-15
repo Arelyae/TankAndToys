@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class CanonBehavior : MonoBehaviour
+public class CanonMouseBehavior : MonoBehaviour
 {
-    public Transform referenceTransform; 
     public Camera mainCamera;           
 
     void Start()
@@ -19,18 +18,8 @@ public class CanonBehavior : MonoBehaviour
 
     void Update()
     {
-        FollowReferenceTransform();
         FaceMousePosition();
-    }
-
-    // Keeps the object at the same position as the reference transform
-    private void FollowReferenceTransform()
-    {
-        if (referenceTransform != null)
-        {
-            transform.position = referenceTransform.position; // Snap to the referenced transform's position
-        }
-    }
+    }   
 
     // Makes the object face the mouse position
     private void FaceMousePosition()

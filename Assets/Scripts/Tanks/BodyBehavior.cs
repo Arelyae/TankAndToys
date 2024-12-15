@@ -5,7 +5,6 @@ public class BodyBehavior : MonoBehaviour
     public TankDataRSo TankDataRSo;
     public PlayerData PlayerData;
 
-    public GameObject objectToDestroy;
 
     private Vector2 inputDirection;
 
@@ -42,12 +41,5 @@ public class BodyBehavior : MonoBehaviour
     }
       
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Damage") 
-        { 
-            Destroy(objectToDestroy);
-            Debug.Log("Object was destroyed by" + collision.gameObject.name);
-        }
-    }
+   
 }
