@@ -773,6 +773,7 @@ GameObject:
   - component: {fileID: 3644072187680405718}
   - component: {fileID: 2263678216325044626}
   - component: {fileID: 2890412350227490639}
+  - component: {fileID: 3958265788894340004}
   m_Layer: 0
   m_Name: CanonTurningParent
   m_TagString: Untagged
@@ -862,3 +863,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTransform: {fileID: 7470166016077744084}
+--- !u!114 &3958265788894340004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8652437246300960130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effd944769fa8e64b810e713dd5ebf93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: cd273d41ef4ff164fbe8175b5cd65f11, type: 2}
+  canonFunction: {fileID: 11400000, guid: 2406148581e4f9a44a80f54cfc6c9253, type: 2}
