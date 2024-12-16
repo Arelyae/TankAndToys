@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfTank: Player 1
   player: 0
-  speed: 1.5
+  speed: 1
   rotationSpeed: 2.5
   angleTolerance: 40
   bulletUsed: {fileID: 875525187206142973, guid: 14ca98a9d78f3db439cc770d268f9128, type: 3}

@@ -11,7 +11,6 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] RotationFunctionTemplate rotationFunction;
     [SerializeField] MovementFunctionTemplate movementFunction;
-    [SerializeField] CanonFunctionTemplate canonFunction;
 
 
     public void FixedUpdate()
@@ -19,7 +18,6 @@ public class EnemyController : MonoBehaviour
         HandleInput();
         rotationFunction.Rotate(transform, playerDirection, tankDataRSo.rotationSpeed);
         movementFunction.HandleMovement(transform, playerDirection, tankDataRSo.speed, tankDataRSo.angleTolerance);
-        canonFunction.FaceTargetPositon(playerDirection, transform);
 
     }
 

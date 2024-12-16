@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class CanonFunctionTemplate : ScriptableObject
 {
-    public abstract void FaceTargetPositon(Vector3 targetPosition, Transform t);
+    public abstract void FaceTargetPositon(Transform targetPosition, Transform t);
 }
