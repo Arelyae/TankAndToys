@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -10,16 +11,23 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] RotationFunctionTemplate rotationFunction;
     [SerializeField] MovementFunctionTemplate movementFunction;
+    [SerializeField] CanonFunctionTemplate canonFunction;
 
-    private void FixedUpdate()
+
+    public void FixedUpdate()
     {
         HandleInput();
         rotationFunction.Rotate(transform, playerDirection, tankDataRSo.rotationSpeed);
         movementFunction.HandleMovement(transform, playerDirection, tankDataRSo.speed, tankDataRSo.angleTolerance);
+        canonFunction.FaceTargetPositon(playerDirection, transform);
+
     }
 
     void HandleInput()
     {
         playerDirection = playerData.playerTransform.position - transform.position;
     }
+
+
+
 }

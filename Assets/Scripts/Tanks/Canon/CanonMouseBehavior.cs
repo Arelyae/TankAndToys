@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class CanonMouseBehavior : MonoBehaviour
 {
-    public Camera mainCamera;           
+    public Camera mainCamera;
+    Vector3 targetPosition;
+
+    [SerializeField] CanonFunctionTemplate canonFunction;
 
     void Start()
     {
@@ -18,29 +21,17 @@ public class CanonMouseBehavior : MonoBehaviour
 
     void Update()
     {
-        FaceMousePosition();
+        GetMouse();
+        canonFunction.FaceTargetPositon(targetPosition, transform);
     }   
 
-    // Makes the object face the mouse position
-    private void FaceMousePosition()
+    public void GetMouse()
     {
-        if (mainCamera == null) return;
-
         // Get the mouse position in world space
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = Mathf.Abs(mainCamera.transform.position.z - transform.position.z); // Set the correct depth
 
-        Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
-
-        // Calculate the direction from the object to the mouse position
-        Vector3 direction = worldMousePosition - transform.position;
-
-        // Normalize the direction to avoid scaling issues
-        direction.z = 0; // Ensure rotation stays in 2D
-        direction.Normalize();
-
-        // Rotate to face the mouse position
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // Calculate angle to the mouse
-        transform.rotation = Quaternion.Euler(0, 0, angle); // Apply rotation in 2D space
+        targetPosition = mainCamera.ScreenToWorldPoint(mousePosition);
     }
+
 }
