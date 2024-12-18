@@ -15,7 +15,7 @@ MonoBehaviour:
   bulletName: Classic Bullet
   speed: -5
   life: 1
-  magSize: 500
+  magSize: 4
   reloadTime: 1
   fireRate: 0.2
   primarColor: {r: 1, g: 0.17174745, b: 0, a: 1}

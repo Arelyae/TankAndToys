@@ -19,5 +19,5 @@ MonoBehaviour:
   angleTolerance: 0
   bulletUsed: {fileID: 875525187206142973, guid: 14ca98a9d78f3db439cc770d268f9128, type: 3}
   mineUsed: {fileID: 692879645048290444, guid: e7e2f57d415852d468bb972931179cb5, type: 3}
-  primarColor: {r: 1, g: 0.08050734, b: 0, a: 1}
-  secondColor: {r: 1, g: 0.5748935, b: 0, a: 1}
+  primarColor: {r: 1, g: 0.5764706, b: 0, a: 1}
+  secondColor: {r: 1, g: 0.5764706, b: 0, a: 1}

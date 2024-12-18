@@ -13,7 +13,7 @@ public class Detection : MonoBehaviour
     public LayerMask detectionLayerMask; // Specify layers the raycast can detect
     public Transform rayCastSpawn;
     public Vector2 rayDirection;
-    bool canFire;
+    public bool seesPlayer;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,7 +30,7 @@ public class Detection : MonoBehaviour
         {
             Debug.Log("Player is in field of view");
 
-            ObstaclesCheck(collision, canFire);
+            ObstaclesCheck(collision);
         }
     }
 
@@ -51,13 +51,13 @@ public class Detection : MonoBehaviour
 
     public void FiringAtPlayer()
     {
-        if (canFire)
+        if (seesPlayer)
         {
             OnPlayerSeen.Invoke();
         }
     }
 
-    public void ObstaclesCheck(Collider2D collision, bool conditionToCheck)
+    public void ObstaclesCheck(Collider2D collision)
     {
 
         rayDirection = (collision.transform.position - rayCastSpawn.position).normalized;
@@ -70,12 +70,12 @@ public class Detection : MonoBehaviour
         {
             if (hit.collider.tag == "Tank")
             {
-                conditionToCheck = true;
+                seesPlayer = true;
                 return;
             }
             else
             {
-                conditionToCheck = false;
+                seesPlayer = false;
                 return;
             }
         }
