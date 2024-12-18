@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering.Universal;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +10,10 @@ public class Detection : MonoBehaviour
     public UnityEvent OnPlayerSeen;
     public UnityEvent OnPlayerExitingSight;
 
-    public LayerMask detectionLayerMask; // Optional layer mask to filter the raycast
+    public LayerMask detectionLayerMask; // Specify layers the raycast can detect
+    public Transform rayCastSpawn;
+    public Vector2 rayDirection;
+    bool canFire;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,26 +26,11 @@ public class Detection : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Player is in field of view");
-
-        if (collision.gameObject.tag == "Tank")
+        if(collision.gameObject.tag == "Tank")
         {
-            // Cast a ray from this object's position to the player's position
-            Vector2 rayDirection = (collision.transform.position - transform.position).normalized;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, Mathf.Infinity, detectionLayerMask);
+            Debug.Log("Player is in field of view");
 
-            if (hit.collider != null)
-            {
-                if (hit.collider.tag == "Tank")
-                {
-                    Debug.Log("Raycast hit the player (Tank)");
-                    OnPlayerSeen.Invoke();
-                }
-                else
-                {
-                    Debug.Log("Raycast hit something else, stopping detection.");
-                }
-            }
+            ObstaclesCheck(collision, canFire);
         }
     }
 
@@ -53,4 +42,44 @@ public class Detection : MonoBehaviour
             OnPlayerExitingSight.Invoke();
         }
     }
+
+    private void Update()
+    {
+        FiringAtPlayer();
+    }
+
+
+    public void FiringAtPlayer()
+    {
+        if (canFire)
+        {
+            OnPlayerSeen.Invoke();
+        }
+    }
+
+    public void ObstaclesCheck(Collider2D collision, bool conditionToCheck)
+    {
+
+        rayDirection = (collision.transform.position - rayCastSpawn.position).normalized;
+
+        RaycastHit2D hit = Physics2D.Raycast(rayCastSpawn.position, rayDirection, Mathf.Infinity, detectionLayerMask);
+
+        Debug.DrawRay(rayCastSpawn.position, rayDirection * 10, Color.red); 
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.tag == "Tank")
+            {
+                conditionToCheck = true;
+                return;
+            }
+            else
+            {
+                conditionToCheck = false;
+                return;
+            }
+        }
+
+    }
+
 }
