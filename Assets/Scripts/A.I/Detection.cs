@@ -29,7 +29,6 @@ public class Detection : MonoBehaviour
         if(collision.gameObject.tag == "Tank")
         {
             Debug.Log("Player is in field of view");
-
             ObstaclesCheck(collision);
         }
     }

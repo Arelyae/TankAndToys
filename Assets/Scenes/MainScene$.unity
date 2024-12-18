@@ -1206,8 +1206,20 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3649502368262742602, guid: 7269c97430f561f43a0d0f74ecd409e6, type: 3}
+      propertyPath: m_Color.a
+      value: 0.007843138
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649502368262742602, guid: 7269c97430f561f43a0d0f74ecd409e6, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958265788894340004, guid: 7269c97430f561f43a0d0f74ecd409e6, type: 3}
+      propertyPath: startAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958265788894340004, guid: 7269c97430f561f43a0d0f74ecd409e6, type: 3}
+      propertyPath: rotationTime
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8116397319549197118, guid: 7269c97430f561f43a0d0f74ecd409e6, type: 3}
       propertyPath: m_LocalPosition.x
